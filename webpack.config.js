@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
     library: 'Adgame SDK',
-    filename: 'slider-x.js'
+    filename: 'sdk-adgame.js'
   },
   module: {
     rules: [
