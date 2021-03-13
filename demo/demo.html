@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>mp Slider Demo</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="../dist/slider-x.css">
+  <link rel="stylesheet" href="./demo.css">
+</head>
+
+<body>
+  <div class="my-slide">
+    <div class="h-500px slide-1"></div>
+    <div class="h-500px slide-2"></div>
+    <div class="h-500px slide-1"></div>
+    <div class="h-500px slide-2"></div>
+    <div class="h-500px slide-1"></div>
+    <div class="h-500px slide-2"></div>
+    <div class="h-500px slide-1"></div>
+    <div class="h-500px slide-2"></div>
+    <div class="h-500px slide-1"></div>
+    <div class="h-500px slide-2"></div>
+    <div class="h-500px slide-1"></div>
+  </div>
+  <br><br><br>
+  <!-- <div class="my-slide">
+    <div class="h-400px slide-3"></div>
+    <div class="h-400px slide-4"></div>
+  </div> -->
+  <section>
+    <div>
+      <div>
+        <div class='test-slider-1' style="text-decoration: underline;">
+          <div class="child-1 h-200px">
+            <select name="123">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+            0
+          </div>
+          <div class="child-2 h-400px">1</div>
+          <div class="child-3 h-300px" style="font-size: 2em;">2</div>
+          <div class="child-4 h-500px">3</div>
+          <div class="child-5 h-300px">4</div>
+          <div class="child-1 h-200px">5</div>
+          <div class="child-2 h-400px">6</div>
+          <div class="child-3 h-300px" style="font-size: 2em;">7</div>
+          <div class="child-4 h-500px">8</div>
+          <div class="child-5 h-300px">9</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br><br><br>
+  <div class='test-slider-2 h-300px' style="height: 400px;">
+    <div class="child-1">
+      <select name="123">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+      </select>
+      00
+      <button onclick="console.log('hello world')">Click</button>
+    </div>
+    <div class="child-2">11</div>
+    <div class="child-3">22</div>
+    <div class="child-4">33</div>
+    <div class="child-5">44</div>
+  </div>
+
+  <script src="./script.js"></script>
+  <script src="../dist/slider-x.js"></script>
+  <script>
+    var $slides = document.querySelectorAll('.my-slide');
+    for (var i = 0; i < $slides.length; i++) {
+      var $s = $slides.item(i);
+      new SliderX($s, {
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        gutter: 15,
+        autoPlay: true, 
+        duration: 200,
+        autoPlayDelay: 2000,
+        loop: true,
+        navStyle: 'nav-style-111',
+        paginationStyle: 'pagination-style-3'
+      })
+    }
+
+    const mySlider1 = document.querySelector('.test-slider-1')
+    new SliderX(mySlider1, {
+      curr: 7,
+      slidesToShow: 3,
+      slidesToScroll: 1,
+      autoPlay: true,
+      duration: 400,
+      autoPlayDelay: '2000',
+      loop: true,
+      adaptiveHeight: false,
+      gutter: 15,
+      draggable: true,
+      navStyle: 'nav-style-5 fa-long-arrow',
+      paginationStyle: 'pagination-style-2'
+    })
+
+    const mySlider2 = document.querySelector('.test-slider-2')
+    new SliderX(mySlider2, {
+      autoPlay: true,
+      autoPlayDelay: 3000,
+      duration: 300,
+      duration: "sample-text-to-test-default-opts",
+      loop: true,
+      navStyle: 'nav-style-3 fa-angle',
+      paginationStyle: 'pagination-style-2'
+    })
+  </script>
+</body>
+
+</html>
