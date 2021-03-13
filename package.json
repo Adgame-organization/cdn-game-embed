@@ -1,14 +1,14 @@
 {
-  "name": "slider-x",
+  "name": "adgame-sdk",
   "version": "15.8.1",
-  "description": "Simple and awesome Slider for PageFly",
+  "description": "SDK adgame",
   "main": "dist/slider-x.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sellersmith/slider-x"
+    "url": ""
   },
   "author": "SellerSmith Team",
   "license": "ISC",
@@ -30,5 +30,8 @@
     "global": "^4.3.2",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
   }
 }
