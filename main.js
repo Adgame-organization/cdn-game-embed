@@ -14,7 +14,7 @@ export class AdgameSDK {
     }
     this.gameId  = gameId
     this.requester = axios.create({
-      baseURL: "http://localhost:3010",
+      baseURL: "https://api-game.adgame.asia/",
       timeout: 5000,
       headers: {
         Authorization: token || '',
