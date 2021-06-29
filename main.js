@@ -6,15 +6,15 @@ export class AdgameSDK {
   constructor( ) {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString);
-    console.log("urlParams",urlParams)
     const gameId = urlParams.get('gameId')
     const token =  urlParams.get('token')
     if(!gameId) {
       throw new Error(`Cần thêm vào url ở iframe ${window.location.href}?gameId=[gameId]`)
     }
+
     this.gameId  = gameId
     this.requester = axios.create({
-      baseURL: "https://api-game.adgame.asia/",
+      baseURL: "https://api.adgame.club/",
       timeout: 5000,
       headers: {
         Authorization: token || '',
@@ -23,6 +23,11 @@ export class AdgameSDK {
     });
     this.gameId = gameId;
   }
+  
+  addTrackingLog(gameId , body) {
+    return this.requester.post(`/tracking-log/${this.gameId}`, body).then(({data}) => data)
+  }
+
   getDataGame() {
     return this.requester.get(`api/game/${this.gameId}`).then(({ data }) => {
       return data;
@@ -33,13 +38,6 @@ export class AdgameSDK {
     return this.requester.get(`api/game`).then(({ data }) => {
       return data;
     });
-  }
-  getGameForDashBoard({ search }) {
-    return this.requester
-      .get(`api/game/get-game-for-dashboard`)
-      .then(({ data }) => {
-        return data;
-      });
   }
 
   addGameById(body) {
@@ -55,6 +53,7 @@ export class AdgameSDK {
         return data;
       });
   }
+
 }
 console.log("hello day la script adgame");
 window.AdgameSDK = AdgameSDK;

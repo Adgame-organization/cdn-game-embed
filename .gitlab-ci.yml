@@ -1,0 +1,16 @@
+image: docker:latest
+services:
+  - docker:dind
+stages:
+  - deploy
+step-deploy-production:
+  stage: deploy
+  before_script:
+    - export API_URL=https://api.adgame.club
+  only:
+    - master
+  tags:
+    - frontend
+  script:
+    -  npm run webpack
+    -  pm2 delete sdk-adgame && pm2 run node.js
